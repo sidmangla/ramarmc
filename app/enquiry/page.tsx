@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 // Paste your Web3Forms access key here (web3forms.com -> enter your email -> copy key)
-const ACCESS_KEY = "PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE";
+const ACCESS_KEY = "40192ca1-79f0-41ef-818a-0e580228b9ca";
 
 export default function Enquiry() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -95,7 +95,7 @@ export default function Enquiry() {
                 <label htmlFor="grade">Concrete grade</label>
                 <select id="grade" name="grade" defaultValue="">
                   <option value="">Not sure yet</option>
-                  {["M7.5","M10","M15","M20","M25","M30","M35","M40","M45","M50","M55","M60"].map((g) => (
+                  {["M7.5", "M10", "M15", "M20", "M25", "M30", "M35", "M40", "M45", "M50", "M55", "M60"].map((g) => (
                     <option key={g}>{g}</option>
                   ))}
                 </select>
@@ -166,7 +166,7 @@ export default function Enquiry() {
               <div>
                 <dt>Email</dt>
                 <dd>
-                  <a href="mailto:varunmangl@gmail.com">varunmangl@gmail.com</a>
+                  <a href="mailto:info@ramarmc.com">info@ramarmc.com</a>
                 </dd>
               </div>
               <div>

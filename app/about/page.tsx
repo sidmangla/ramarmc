@@ -105,7 +105,7 @@ export default function About() {
               <div>
                 <dt>Email</dt>
                 <dd>
-                  <a href="mailto:varunmangl@gmail.com">varunmangl@gmail.com</a>
+                  <a href="mailto:info@ramarmc.com">info@ramarmc.com</a>
                 </dd>
               </div>
               <div>

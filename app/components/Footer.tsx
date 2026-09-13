@@ -10,7 +10,7 @@ export default function Footer() {
         <div>
           <a href="tel:+917082538383">+91 70825 38383</a>
           <br />
-          <a href="mailto:varunmangl@gmail.com">varunmangl@gmail.com</a>
+          <a href="mailto:info@ramarmc.com">info@ramarmc.com</a>
         </div>
         <div>© {new Date().getFullYear()} RamaRMC</div>
       </div>
