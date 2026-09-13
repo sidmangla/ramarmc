@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 // Paste your Web3Forms access key here (web3forms.com -> enter your email -> copy key)
-const ACCESS_KEY = "40192ca1-79f0-41ef-818a-0e580228b9ca";
+const ACCESS_KEY = "783899a7-73c1-45c8-815f-b45e87007628";
 
 export default function Enquiry() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
