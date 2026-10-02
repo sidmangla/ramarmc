@@ -100,7 +100,7 @@ export default function Home() {
             caption="Batching plant, Palwal"
           />
           <div>
-            <h2>Our own plant, not a broker's phone.</h2>
+            <h2>Our own plant, not a broker&rsquo;s phone.</h2>
             <p className="lead">
               Cement silos, aggregate bins and a batching tower on our own
               yard in Palwal.
