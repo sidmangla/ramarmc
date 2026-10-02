@@ -1,11 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-inner">
-        <Link href="/" className="brand">
-          Rama<span>RMC</span>
+        <Link href="/" className="brand" aria-label="Rama RMC home">
+          <Image
+            src="/logo.webp"
+            alt="Rama RMC — Concreting Trust"
+            width={1000}
+            height={401}
+            priority
+            className="brand-logo"
+          />
         </Link>
         <nav className="nav-links">
           <Link href="/">Home</Link>

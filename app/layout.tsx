@@ -17,7 +17,7 @@ const body = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "RaMarMC — Ready mix concrete, Palwal",
+  title: "Rama RMC — Ready mix concrete, Palwal",
   description:
     "Ready mix concrete supplied to building sites and warehouse floors across Palwal, Faridabad and the Delhi NCR industrial belt.",
 };
