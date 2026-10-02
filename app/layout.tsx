@@ -17,9 +17,19 @@ const body = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ramarmc.com"),
   title: "Rama RMC — Ready mix concrete, Palwal",
   description:
     "Ready mix concrete supplied to building sites and warehouse floors across Palwal, Faridabad and the Delhi NCR industrial belt.",
+  icons: { icon: "/icon.png", apple: "/apple-icon.png" },
+  openGraph: {
+    title: "Rama RMC — Concreting Trust",
+    description:
+      "Ready mix concrete for building sites and warehouse floors across Palwal, Faridabad and the Delhi NCR industrial belt.",
+    siteName: "Rama RMC",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og-image.png"] },
 };
 
 export default function RootLayout({
