@@ -25,7 +25,12 @@ const grades = [
   { grade: "M30", use: "Warehouse floors, loading bays" },
   { grade: "M35–M40", use: "High-rise frames, heavy floors" },
   { grade: "M45–M60", use: "High-strength and precast work" },
+];
+
+const specials = [
   { grade: "SCC", use: "Self-compacting, for congested rebar and fair-face finishes" },
+  { grade: "TCC", use: "Temperature-controlled, for rafts and mass pours" },
+  { grade: "LWC", use: "Lightweight, for fills, roof slopes and partitions" },
 ];
 
 const clients = [
@@ -118,6 +123,17 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <div className="grades grades-special">
+          <div className="grade grade-label">
+            <small>Special concretes</small>
+          </div>
+          {specials.map((g) => (
+            <div className="grade" key={g.grade}>
+              <b>{g.grade}</b>
+              <small>{g.use}</small>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="section">
@@ -173,13 +189,22 @@ export default function Home() {
               </p>
             </div>
             <div className="use">
-              <h3>Self-compacting concrete (SCC)</h3>
+              <h3>Special concretes</h3>
               <p>
-                A high-flow mix that spreads and settles under its own weight,
-                with no vibrators needed. It suits heavily reinforced columns,
-                thin walls, precast elements and fair-face surfaces where
-                honeycombing isn&rsquo;t acceptable. Available in M30 to M60,
-                with flow tested at site before placement.
+                <b>Self-compacting (SCC):</b> a high-flow mix that spreads and
+                settles under its own weight, with no vibrators needed. For
+                heavily reinforced columns, thin walls, precast and fair-face
+                surfaces. Available in M30 to M60, with flow tested at site.
+              </p>
+              <p>
+                <b>Temperature-controlled (TCC):</b> batched with chilled water
+                or ice to keep the placing temperature down, so thick rafts and
+                mass pours don&rsquo;t crack from heat of hydration.
+              </p>
+              <p>
+                <b>Lightweight (LWC):</b> a low-density mix that cuts dead load
+                on the structure, for filling sunken areas, roof slopes,
+                insulation layers and non-structural partitions.
               </p>
             </div>
           </div>
@@ -205,8 +230,8 @@ export default function Home() {
               Tell us the grade and the exposure condition and we match the mix
               design, admixtures and slump to it. Transit mixers are scheduled
               to your pour rate so the concrete is placed, not parked.
-              Self-compacting concrete (SCC) is available for congested or
-              architectural pours.
+              Self-compacting (SCC), temperature-controlled (TCC) and
+              lightweight (LWC) concrete are also available.
             </p>
           </div>
         </Reveal>
