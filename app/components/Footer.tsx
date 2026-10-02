@@ -10,7 +10,7 @@ export default function Footer() {
             src="/logo.webp"
             alt="Rama RMC — Concreting Trust"
             width={1000}
-            height={401}
+            height={403}
             className="footer-logo"
           />
           <p>
