@@ -82,7 +82,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  height: 76px;
+  height: 96px;
 }
 
 .brand {
@@ -99,7 +99,7 @@ a {
 }
 
 .brand-logo {
-  height: 60px;
+  height: 76px;
   width: auto;
 }
 
@@ -416,7 +416,7 @@ a {
 }
 
 .footer-logo {
-  height: 72px;
+  height: 96px;
   width: auto;
   align-self: flex-start;
 }
@@ -465,10 +465,10 @@ a {
     font-size: 0.9rem;
   }
   .nav-inner {
-    height: 64px;
+    height: 72px;
   }
   .brand-logo {
-    height: 44px;
+    height: 52px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
@@ -742,5 +742,30 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .hero-photo .slide {
     transition: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-inner {
+    gap: 12px;
+  }
+  .nav-links {
+    gap: 14px;
+    font-size: 0.85rem;
+  }
+  .nav-links a {
+    white-space: nowrap;
+  }
+  .brand-logo {
+    height: 46px;
+  }
+}
+
+@media (max-width: 350px) {
+  .nav-inner {
+    padding: 0 16px;
+  }
+  .brand-logo {
+    height: 40px;
   }
 }
