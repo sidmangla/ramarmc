@@ -25,15 +25,34 @@ const grades = [
   { grade: "M30", use: "Warehouse floors, loading bays" },
   { grade: "M35–M40", use: "High-rise frames, heavy floors" },
   { grade: "M45–M60", use: "High-strength and precast work" },
+  { grade: "SCC", use: "Self-compacting, for congested rebar and fair-face finishes" },
 ];
 
 const clients = [
-  "Polymed",
-  "L&T",
-  "Semac Construction",
-  "Associate Developers",
-  "Ace",
-  "Nisha Engineering",
+  {
+    name: "Larsen & Toubro Ltd.",
+    about: "India’s largest engineering and construction company",
+  },
+  {
+    name: "Poly Medicure Ltd.",
+    about: "Medical device maker with plants in Faridabad",
+  },
+  {
+    name: "Action Construction Equipment Ltd. (ACE)",
+    about: "Crane and construction equipment maker, headquartered in Palwal",
+  },
+  {
+    name: "Semac Construction Ltd.",
+    about: "EPC contractor for industrial and commercial projects",
+  },
+  {
+    name: "Associate Developers",
+    about: "Construction and real estate development",
+  },
+  {
+    name: "Nisha Engineers Infratech Pvt. Ltd.",
+    about: "Building and infrastructure contractor since 2008",
+  },
 ];
 
 function Photo({
@@ -100,7 +119,7 @@ export default function Home() {
             caption="Batching plant, Palwal"
           />
           <div>
-            <h2>Our own plant, not a broker&rsquo;s phone.</h2>
+            <h2>Batched at our own plant in Palwal.</h2>
             <p className="lead">
               Cement silos, aggregate bins and a batching tower on our own
               yard in Palwal.
@@ -109,6 +128,7 @@ export default function Home() {
               Every load is weighed and mixed here, to the grade on your
               drawing, and loaded straight onto the transit mixer. No
               third-party plant, no guessing what went into the drum.
+              That&rsquo;s what we mean by concreting trust.
             </p>
           </div>
         </Reveal>
@@ -143,6 +163,16 @@ export default function Home() {
                 the laying rate so the crew is never waiting on a truck.
               </p>
             </div>
+            <div className="use">
+              <h3>Self-compacting concrete (SCC)</h3>
+              <p>
+                A high-flow mix that spreads and settles under its own weight,
+                with no vibrators needed. It suits heavily reinforced columns,
+                thin walls, precast elements and fair-face surfaces where
+                honeycombing isn&rsquo;t acceptable. Available in M30 to M60,
+                with flow tested at site before placement.
+              </p>
+            </div>
           </div>
         </Reveal>
       </section>
@@ -164,6 +194,8 @@ export default function Home() {
               Tell us the grade and the exposure condition and we match the mix
               design, admixtures and slump to it. Transit mixers are scheduled
               to your pour rate so the concrete is placed, not parked.
+              Self-compacting concrete (SCC) is available for congested or
+              architectural pours.
             </p>
           </div>
         </Reveal>
@@ -171,14 +203,17 @@ export default function Home() {
 
       <section className="section">
         <Reveal className="wrap">
-          <h2>Concrete supplied to</h2>
+          <h2>Concreting trust across the NCR.</h2>
           <p className="lead">
-            Contractors and developers who have taken our mix on their
-            projects.
+            Industrial manufacturers, EPC contractors and developers who have
+            built with our concrete.
           </p>
           <ul className="clients">
             {clients.map((c) => (
-              <li key={c}>{c}</li>
+              <li key={c.name}>
+                <b>{c.name}</b>
+                <span>{c.about}</span>
+              </li>
             ))}
           </ul>
         </Reveal>
