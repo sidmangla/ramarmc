@@ -60,14 +60,16 @@ function Photo({
   alt,
   caption,
   position,
+  ratio,
 }: {
   src: string;
   alt: string;
   caption?: string;
   position?: string;
+  ratio?: string;
 }) {
   return (
-    <div className="photo">
+    <div className="photo" style={ratio ? { aspectRatio: ratio } : undefined}>
       {src ? (
         <img
           src={src}
@@ -191,6 +193,7 @@ export default function Home() {
             alt="Rama RMC transit mixer with the company logo on the drum"
             caption="Transit mixer, RMC-01"
             position="right center"
+            ratio="16 / 9"
           />
           <div>
             <h2>Grades from M7.5 to M60.</h2>
