@@ -10,13 +10,14 @@ export default function Nav() {
             src="/logo.webp"
             alt="Rama RMC — Concreting Trust"
             width={1000}
-            height={401}
+            height={403}
             priority
             className="brand-logo"
           />
         </Link>
         <nav className="nav-links">
-          <Link href="/">Home</Link>
+          <Link href="/" className="nav-home">Home</Link>
+          <Link href="/products">Products</Link>
           <Link href="/about">About</Link>
           <Link href="/enquiry">Get a quote</Link>
         </nav>

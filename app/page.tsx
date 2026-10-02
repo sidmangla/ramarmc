@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "./components/Reveal";
 import HeroSlides from "./components/HeroSlides";
+import { products } from "./products";
 
 // Photo files live in /public.
 const PHOTOS = {
@@ -16,39 +17,55 @@ const HERO_SLIDES = [
   { src: "/hero-pour.jpg", alt: "Concrete being poured at a site" },
 ];
 
-const grades = [
-  { grade: "M7.5", use: "PCC, levelling, blinding" },
-  { grade: "M10", use: "Bedding, non-structural fill" },
-  { grade: "M15", use: "Kerbs, drains, mass fill" },
-  { grade: "M20", use: "Footings, slabs, low-rise frames" },
-  { grade: "M25", use: "Columns, beams, rafts" },
-  { grade: "M30", use: "Warehouse floors, loading bays" },
-  { grade: "M35–M40", use: "High-rise frames, heavy floors" },
-  { grade: "M45–M60", use: "High-strength and precast work" },
-];
-
 const clients = [
-  "Polymed",
-  "L&T",
-  "Semac Construction",
-  "Associate Developers",
-  "Ace",
-  "Nisha Engineering",
+  {
+    name: "Larsen & Toubro Ltd.",
+    about: "India’s largest engineering and construction company",
+  },
+  {
+    name: "Poly Medicure Ltd.",
+    about: "Medical device maker with plants in Faridabad",
+  },
+  {
+    name: "Action Construction Equipment Ltd. (ACE)",
+    about: "Crane and construction equipment maker, headquartered in Palwal",
+  },
+  {
+    name: "Semac Construction Ltd.",
+    about: "EPC contractor for industrial and commercial projects",
+  },
+  {
+    name: "Associate Developers",
+    about: "Construction and real estate development",
+  },
+  {
+    name: "Nisha Engineers Infratech Pvt. Ltd.",
+    about: "Building and infrastructure contractor since 2008",
+  },
 ];
 
 function Photo({
   src,
   alt,
   caption,
+  position,
+  ratio,
 }: {
   src: string;
   alt: string;
   caption?: string;
+  position?: string;
+  ratio?: string;
 }) {
   return (
-    <div className="photo">
+    <div className="photo" style={ratio ? { aspectRatio: ratio } : undefined}>
       {src ? (
-        <img src={src} alt={alt} loading="lazy" />
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          style={position ? { objectPosition: position } : undefined}
+        />
       ) : (
         <div className="photo-empty">
           Photo slot: {alt}. Drop the file in /public and set its name in
@@ -81,14 +98,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="wrap">
-        <div className="grades" style={{ marginTop: 0 }}>
-          {grades.map((g) => (
-            <div className="grade" key={g.grade}>
-              <b>{g.grade}</b>
-              <small>{g.use}</small>
+      <section className="section products-home">
+        <div className="wrap">
+          <div className="products-head">
+            <div>
+              <h2>Our products</h2>
+              <p className="lead">
+                Every grade from M7.5 to M60, plus special concretes for
+                demanding pours.
+              </p>
             </div>
-          ))}
+            <Link href="/products" className="btn">
+              View all products
+            </Link>
+          </div>
+          <div className="product-cards">
+            {products.map((p) => (
+              <Link
+                href={`/products#${p.id}`}
+                className="product-card"
+                key={p.id}
+              >
+                <span className="product-card-code">{p.code}</span>
+                <span className="product-card-name">{p.name}</span>
+                <span className="product-card-pitch">{p.pitch}</span>
+                <span className="product-card-more">Details &rarr;</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -100,7 +137,7 @@ export default function Home() {
             caption="Batching plant, Palwal"
           />
           <div>
-            <h2>Our own plant, not a broker&rsquo;s phone.</h2>
+            <h2>Batched at our own plant in Palwal.</h2>
             <p className="lead">
               Cement silos, aggregate bins and a batching tower on our own
               yard in Palwal.
@@ -109,6 +146,7 @@ export default function Home() {
               Every load is weighed and mixed here, to the grade on your
               drawing, and loaded straight onto the transit mixer. No
               third-party plant, no guessing what went into the drum.
+              That&rsquo;s what we mean by concreting trust.
             </p>
           </div>
         </Reveal>
@@ -143,6 +181,15 @@ export default function Home() {
                 the laying rate so the crew is never waiting on a truck.
               </p>
             </div>
+            <div className="use">
+              <h3>Special concretes</h3>
+              <p>
+                Self-compacting (SCC) for congested reinforcement,
+                temperature-controlled (TCC) for thick rafts and mass pours,
+                and lightweight (LWC) for fills and roof slopes.{" "}
+                <Link href="/products#scc">See the full product range &rarr;</Link>
+              </p>
+            </div>
           </div>
         </Reveal>
       </section>
@@ -151,8 +198,10 @@ export default function Home() {
         <Reveal className="wrap photo-split">
           <Photo
             src={PHOTOS.truck}
-            alt="RamaRMC transit mixer"
+            alt="Rama RMC transit mixer with the company logo on the drum"
             caption="Transit mixer, RMC-01"
+            position="right center"
+            ratio="16 / 9"
           />
           <div>
             <h2>Grades from M7.5 to M60.</h2>
@@ -164,6 +213,9 @@ export default function Home() {
               Tell us the grade and the exposure condition and we match the mix
               design, admixtures and slump to it. Transit mixers are scheduled
               to your pour rate so the concrete is placed, not parked.
+              Self-compacting (SCC), temperature-controlled (TCC) and
+              lightweight (LWC) concrete are also available.{" "}
+              <Link href="/products">See all products &rarr;</Link>
             </p>
           </div>
         </Reveal>
@@ -171,14 +223,17 @@ export default function Home() {
 
       <section className="section">
         <Reveal className="wrap">
-          <h2>Concrete supplied to</h2>
+          <h2>Concreting trust across the NCR.</h2>
           <p className="lead">
-            Contractors and developers who have taken our mix on their
-            projects.
+            Industrial manufacturers, EPC contractors and developers who have
+            built with our concrete.
           </p>
           <ul className="clients">
             {clients.map((c) => (
-              <li key={c}>{c}</li>
+              <li key={c.name}>
+                <b>{c.name}</b>
+                <span>{c.about}</span>
+              </li>
             ))}
           </ul>
         </Reveal>
