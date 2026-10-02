@@ -93,9 +93,14 @@ a {
   text-decoration: none;
 }
 
-.brand span {
-  color: var(--wet);
-  font-weight: 400;
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 52px;
+  width: auto;
 }
 
 .nav-links {
@@ -429,6 +434,9 @@ a {
   }
   .nav-inner {
     height: 64px;
+  }
+  .brand-logo {
+    height: 42px;
   }
 }
 
