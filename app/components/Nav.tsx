@@ -16,7 +16,8 @@ export default function Nav() {
           />
         </Link>
         <nav className="nav-links">
-          <Link href="/">Home</Link>
+          <Link href="/" className="nav-home">Home</Link>
+          <Link href="/products">Products</Link>
           <Link href="/about">About</Link>
           <Link href="/enquiry">Get a quote</Link>
         </nav>

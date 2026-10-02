@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { products } from "../products";
 
 // Paste your Web3Forms access key here (web3forms.com -> enter your email -> copy key)
 const ACCESS_KEY = "783899a7-73c1-45c8-815f-b45e87007628";
@@ -9,6 +10,14 @@ export default function Enquiry() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const productRef = useRef<HTMLSelectElement>(null);
+
+  // Pre-select the product when arriving from a "Get a quote for…" button.
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("product");
+    const match = products.find((p) => p.id === id);
+    if (match && productRef.current) productRef.current.value = match.name;
+  }, []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -88,6 +97,23 @@ export default function Enquiry() {
                 placeholder="Area, town or landmark"
                 required
               />
+            </div>
+
+            <div className="field">
+              <label htmlFor="product">Product</label>
+              <select
+                id="product"
+                name="product"
+                ref={productRef}
+                defaultValue=""
+              >
+                <option value="">Not sure yet</option>
+                {products.map((p) => (
+                  <option key={p.id} value={p.name}>
+                    {p.name} ({p.code})
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="row">

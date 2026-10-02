@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "./components/Reveal";
 import HeroSlides from "./components/HeroSlides";
+import { products } from "./products";
 
 // Photo files live in /public.
 const PHOTOS = {
@@ -14,23 +15,6 @@ const HERO_SLIDES = [
   { src: "/hero-plant.jpg", alt: "RamaRMC batching plant with transit mixer" },
   { src: "/hero-truck.jpg", alt: "RamaRMC transit mixer at the plant" },
   { src: "/hero-pour.jpg", alt: "Concrete being poured at a site" },
-];
-
-const grades = [
-  { grade: "M7.5", use: "PCC, levelling, blinding" },
-  { grade: "M10", use: "Bedding, non-structural fill" },
-  { grade: "M15", use: "Kerbs, drains, mass fill" },
-  { grade: "M20", use: "Footings, slabs, low-rise frames" },
-  { grade: "M25", use: "Columns, beams, rafts" },
-  { grade: "M30", use: "Warehouse floors, loading bays" },
-  { grade: "M35–M40", use: "High-rise frames, heavy floors" },
-  { grade: "M45–M60", use: "High-strength and precast work" },
-];
-
-const specials = [
-  { grade: "SCC", use: "Self-compacting, for congested rebar and fair-face finishes" },
-  { grade: "TCC", use: "Temperature-controlled, for rafts and mass pours" },
-  { grade: "LWC", use: "Lightweight, for fills, roof slopes and partitions" },
 ];
 
 const clients = [
@@ -114,25 +98,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="wrap">
-        <div className="grades" style={{ marginTop: 0 }}>
-          {grades.map((g) => (
-            <div className="grade" key={g.grade}>
-              <b>{g.grade}</b>
-              <small>{g.use}</small>
+      <section className="section products-home">
+        <div className="wrap">
+          <div className="products-head">
+            <div>
+              <h2>Our products</h2>
+              <p className="lead">
+                Every grade from M7.5 to M60, plus special concretes for
+                demanding pours.
+              </p>
             </div>
-          ))}
-        </div>
-        <div className="grades grades-special">
-          <div className="grade grade-label">
-            <small>Special concretes</small>
+            <Link href="/products" className="btn">
+              View all products
+            </Link>
           </div>
-          {specials.map((g) => (
-            <div className="grade" key={g.grade}>
-              <b>{g.grade}</b>
-              <small>{g.use}</small>
-            </div>
-          ))}
+          <div className="product-cards">
+            {products.map((p) => (
+              <Link
+                href={`/products#${p.id}`}
+                className="product-card"
+                key={p.id}
+              >
+                <span className="product-card-code">{p.code}</span>
+                <span className="product-card-name">{p.name}</span>
+                <span className="product-card-pitch">{p.pitch}</span>
+                <span className="product-card-more">Details &rarr;</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -191,20 +184,10 @@ export default function Home() {
             <div className="use">
               <h3>Special concretes</h3>
               <p>
-                <b>Self-compacting (SCC):</b> a high-flow mix that spreads and
-                settles under its own weight, with no vibrators needed. For
-                heavily reinforced columns, thin walls, precast and fair-face
-                surfaces. Available in M30 to M60, with flow tested at site.
-              </p>
-              <p>
-                <b>Temperature-controlled (TCC):</b> batched with chilled water
-                or ice to keep the placing temperature down, so thick rafts and
-                mass pours don&rsquo;t crack from heat of hydration.
-              </p>
-              <p>
-                <b>Lightweight (LWC):</b> a low-density mix that cuts dead load
-                on the structure, for filling sunken areas, roof slopes,
-                insulation layers and non-structural partitions.
+                Self-compacting (SCC) for congested reinforcement,
+                temperature-controlled (TCC) for thick rafts and mass pours,
+                and lightweight (LWC) for fills and roof slopes.{" "}
+                <Link href="/products#scc">See the full product range &rarr;</Link>
               </p>
             </div>
           </div>
@@ -231,7 +214,8 @@ export default function Home() {
               design, admixtures and slump to it. Transit mixers are scheduled
               to your pour rate so the concrete is placed, not parked.
               Self-compacting (SCC), temperature-controlled (TCC) and
-              lightweight (LWC) concrete are also available.
+              lightweight (LWC) concrete are also available.{" "}
+              <Link href="/products">See all products &rarr;</Link>
             </p>
           </div>
         </Reveal>
