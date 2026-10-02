@@ -82,7 +82,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  height: 72px;
+  height: 76px;
 }
 
 .brand {
@@ -99,7 +99,7 @@ a {
 }
 
 .brand-logo {
-  height: 52px;
+  height: 60px;
   width: auto;
 }
 
@@ -394,11 +394,43 @@ a {
   color: var(--wet);
 }
 
-.footer-inner {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 32px 48px;
+}
+
+.footer-grid > div {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px 40px;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-grid h4 {
+  margin: 0 0 6px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.footer-logo {
+  height: 72px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.footer-brand p {
+  max-width: 38ch;
+  margin: 8px 0 0;
+}
+
+.footer-bottom {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
 }
 
 .footer a {
@@ -436,7 +468,10 @@ a {
     height: 64px;
   }
   .brand-logo {
-    height: 42px;
+    height: 44px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }
 
