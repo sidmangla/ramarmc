@@ -59,15 +59,22 @@ function Photo({
   src,
   alt,
   caption,
+  position,
 }: {
   src: string;
   alt: string;
   caption?: string;
+  position?: string;
 }) {
   return (
     <div className="photo">
       {src ? (
-        <img src={src} alt={alt} loading="lazy" />
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          style={position ? { objectPosition: position } : undefined}
+        />
       ) : (
         <div className="photo-empty">
           Photo slot: {alt}. Drop the file in /public and set its name in
@@ -181,8 +188,9 @@ export default function Home() {
         <Reveal className="wrap photo-split">
           <Photo
             src={PHOTOS.truck}
-            alt="RamaRMC transit mixer"
+            alt="Rama RMC transit mixer with the company logo on the drum"
             caption="Transit mixer, RMC-01"
+            position="right center"
           />
           <div>
             <h2>Grades from M7.5 to M60.</h2>
